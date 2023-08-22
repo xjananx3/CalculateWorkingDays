@@ -21,8 +21,6 @@ class Program
         {
             var eintrage = csv.GetRecords<Zeiten>();
 
-            List<DateTime> feiertagsliste = Feiertage.GetFeiertage();
-
             using (var writer = new StreamWriter(outputFilePath))
             using (var csvWriter = new CsvWriter(writer, config))
             {
@@ -31,7 +29,7 @@ class Program
                 
                 foreach (var eintrag in eintrage)
                 {
-                    int days = CalculateWorkingDays(eintrag.StartDate, eintrag.EndDate, feiertagsliste);
+                    int days = CalculateWorkingDays(eintrag.StartDate, eintrag.EndDate);
                     csvWriter.WriteField(eintrag.StartDate);
                     csvWriter.WriteField(eintrag.EndDate);
                     csvWriter.WriteField(days);
@@ -41,13 +39,15 @@ class Program
         }
     }
 
-    static int CalculateWorkingDays(DateTime startDate, DateTime endDate, List<DateTime> feiertage)
+    static int CalculateWorkingDays(DateTime startDate, DateTime endDate)
     {
         int weekdays = 0;
+        var feiertagsListe = Feiertage.GetFeiertage();
+        
         while (startDate <= endDate)
         {
             if (startDate.DayOfWeek != DayOfWeek.Saturday 
-                && startDate.DayOfWeek != DayOfWeek.Sunday && !feiertage.Contains(startDate))
+                && startDate.DayOfWeek != DayOfWeek.Sunday && !feiertagsListe.Contains(startDate))
             {
                 weekdays++;
             }
