@@ -9,12 +9,12 @@ class Program
 {
     static void Main(string[] args)
     {
-        string inputFilePath = "/home/user/Data/Zeiten.csv";
-        string outputFilePath = "/home/user/Data/Zeiten73.csv";
+        string inputFilePath = "/home/user/Zeiten.csv";
+        string outputFilePath = "/home/user/Zeiten73.csv";
 
         var config = new CsvConfiguration(CultureInfo.InvariantCulture)
         {
-            Delimiter = ","
+            Delimiter = ";"
         };
         
         using (var reader = new StreamReader(inputFilePath))
