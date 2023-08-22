@@ -15,6 +15,7 @@ public class Feiertage
             feiertage.Add(new DateTime(year, 11, 1));   // Allerheiligen
             feiertage.Add(new DateTime(year, 12, 25));  // 1. Weihnachtstag
             feiertage.Add(new DateTime(year, 12, 26));  // 2. Weihnachtstag
+            feiertage.Add(new DateTime(year, 12, 31));  // Silvester
             
             // weitere Bewegliche Feiertage mit Osterformel
             var osterSonntag = CalculateOstern(year);
