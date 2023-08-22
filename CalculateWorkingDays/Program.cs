@@ -9,8 +9,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        string inputFilePath = "/home/user/Zeiten.csv";
-        string outputFilePath = "/home/user/Zeiten73.csv";
+        string inputFilePath = @"D:\Test\Mappe1.csv";
+        string outputFilePath = @"D:\Test\Mappe1337.csv";
 
         var config = new CsvConfiguration(CultureInfo.InvariantCulture)
         {
