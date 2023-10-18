@@ -16,6 +16,7 @@ class Program
             Delimiter = ";"
         };
         
+        
         using (var reader = new StreamReader(inputFilePath))
         using (var csv = new CsvReader(reader, config))
         {
